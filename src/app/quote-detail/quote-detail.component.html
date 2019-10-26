@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <p>{{quote.name}} || {{quote.completeDate|date}}</p>
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-xs-2 col-sm-4">
+                        <button href (click)="likeVote()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>upvote</button>
+                    </div>
+                    <div class="col-xs-2 col-sm-4"> <button>{{ votes }}</button> </div>
+                    <div class="col-xs-2 col-sm-4">
+                        <button href (click)="dislikeVote()"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>downvote</button>
+                    </div>
+                </div>
+            </div>
+
+            <button id="trash" (click)= 'quoteDelete(true)' class="btn btn-outline-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- 
+
+    <div class="row no-gutters">
+        <div class="col-xs-6 col-sm-3"></div>
+        <div class="col-xs-6 col-sm-3"></div>
+        <div class="col-xs-6 col-sm-3"></div>
+      </div>
+
+ -->
