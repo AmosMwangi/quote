@@ -31,7 +31,7 @@
 
       <div class="form-group">
 
-          <label for="complete">Completion</label>
+          <label for="complte">Completion</label>
           <input type='date' id="complete" [(ngModel)]="newQuote.completeDate" name="completeDate" #completeDate="ngModel" required>
           <div [hidden]="completeDate.valid || completeDate.pristine" class="alert alert-danger">
             <p>Date is required</p>
