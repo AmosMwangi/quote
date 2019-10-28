@@ -1,12 +1,17 @@
 <!-- QUOTES -->
 <div class="container">
   <div class="row">
+    <div appBestQuote *ngIf="bestQuote().upVote !== 0" class="col-md-12">
+      <p>{{bestQuote().author}}</p>
+      <p>{{bestQuote().description}}</p>
+      <p>{{bestQuote().name}}</p>
+    </div>
     <div class="col-md-6">
       <div *ngFor='let quote of quotes;let i = index'>
 
         <!-- quote "view" -->
 
-        <div class="card" id="card">
+        <div  class="card" id="card">
             <div class="card-body">
               <h5 class="card-title">{{quote.description}}</h5>
               <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}</cite></footer>

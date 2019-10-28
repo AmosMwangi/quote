@@ -8,8 +8,6 @@ import { Quote } from '../quote';
 })
 export class QuoteDetailComponent implements OnInit {
 
-  votes: number;
-
   @Input() quote: Quote;
  
   // set initial to 0
@@ -23,18 +21,17 @@ export class QuoteDetailComponent implements OnInit {
   }
   // initial to 0
   constructor() {
-    this.votes = 0;
   }
 
   likeVote(): boolean{
     // set an increment of 1 per click
-    this.votes +=1;
+    this.quote.upVote +=1;
     return false;
   }
 
   dislikeVote(): boolean{
     // vice verser => decrease by -1 per click
-    this.votes -=1;
+    this.quote.downVote -=1;
     return false;
   }
 

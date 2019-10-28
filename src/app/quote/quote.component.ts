@@ -9,9 +9,9 @@ import { Quote } from '../quote';
 export class QuoteComponent implements OnInit {
 
   quotes: Quote[] = [
-    new Quote(1,'Amos Mwangi','Abraham Lincon', 'Find an online version and watch merlin find his son',new Date(2019,9,14)),
-    new Quote(2,'Kayte spark','Abraham Lincon','I have to buy cookies for the parrot',new Date(2019,6,9)),
-    new Quote(3,'Migos Qwevo','Abraham Lincon','Diana has her birthday coming up soon',new Date(2019,1,12)),
+    new Quote(1,'Amos Mwangi','Abraham Lincon', 'Find an online version and watch merlin find his son',new Date(2019,9,14),0,0),
+    new Quote(2,'Kayte spark','Abraham Lincon','I have to buy cookies for the parrot',new Date(2019,6,9),0,0),
+    new Quote(3,'Migos Qwevo','Abraham Lincon','Diana has her birthday coming up soon',new Date(2019,1,12),0,0),
   ];
 
   deleteQuote(isComplete, index){
@@ -22,6 +22,17 @@ export class QuoteComponent implements OnInit {
         this.quotes.splice(index,1)
       }
     }
+  }
+
+  //find most voted quote
+  bestQuote() {
+    let upVoteArr: number[] = [];
+    for (let i of this.quotes) {
+      upVoteArr.push(i.upVote);
+    }
+    let maxVote = Math.max(...upVoteArr);
+    let highestVotedQuote = this.quotes.find(quote => quote.upVote === maxVote);
+    return highestVotedQuote;
   }
 
   addNewQuote(quote){

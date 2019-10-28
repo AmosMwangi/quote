@@ -5,12 +5,13 @@
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-xs-2 col-sm-4">
-                        <button id="like" href (click)="likeVote()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  upvote</button>
+                        <span><button class="m-1">{{quote.upVote}}</button> <button id="like" href (click)="likeVote()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  upvote</button></span>
                     </div>
-                    <div class="col-xs-2 col-sm-4"> <button>{{ votes }}</button> </div>
+                    <div class="col-xs-2 col-sm-4"> </div>
                     <div class="col-xs-2 col-sm-4">
-                        <button id="dislike" href (click)="dislikeVote()"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>  downvote</button>
+                       <span> <button class="m-1">{{ quote.downVote}}</button> <button id="dislike" href (click)="dislikeVote()"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>  downvote</button></span>
                     </div>
+                    <div class="col-xs-2 col-sm-4"> </div>
                 </div>
             </div>
 
@@ -18,3 +19,5 @@
         </div>
     </div>
 </div>
+
+
