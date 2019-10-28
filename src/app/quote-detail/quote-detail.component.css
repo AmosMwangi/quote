@@ -1,14 +1,52 @@
-/* no-gutters Class Rules */
-.row.no-gutters {
-    margin-right: 0;
-    margin-left: 0;
- }
- .row.no-gutters > [class^="col-"],
- .row.no-gutters > [class*=" col-"] {
-    padding-right: 0;
-    padding-left: 0;
- }
+.card{
+    background-color: rgb(235, 220, 194) !important;
+    color: rgb(92, 90, 90);
+    overflow: hidden;
+}
 
  #trash{
      margin-top: 10px;
  }
+
+
+ #like:hover{
+    background-color: rgb(35, 104, 81);
+    color: white;
+    transform: scale(1.2);
+ }
+
+ #dislike:hover{
+    background-color: rgb(255, 60, 0);
+    color: white;
+    transform: scale(1.2);
+ }
+
+ #like{
+     width: 110px;
+    border-radius: 50px 10px;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 4.5s infinite;
+}
+
+@-webkit-keyframes mymove {
+  50% {box-shadow: 10px 20px 30px rgb(35, 104, 81);}
+}
+
+@keyframes mymove {
+  50% {box-shadow: 10px 20px 30px rgb(35, 104, 81);}
+}
+
+#dislike{
+    width: 110px;
+   border-radius: 50px 10px;
+   -webkit-animation: mymve 5s infinite; /* Safari 4.0 - 8.0 */
+   animation: mymve 5s infinite;
+}
+
+@-webkit-keyframes mymve {
+ 50% {box-shadow: 10px 20px 30px rgb(35, 104, 81);}
+}
+
+@keyframes mymve {
+ 50% {box-shadow: 10px 20px 30px rgb(255, 60, 0);}
+}

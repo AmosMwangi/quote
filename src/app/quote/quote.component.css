@@ -1,0 +1,21 @@
+#card{
+    margin-top: 25px;
+    background-color: rgb(202, 183, 156);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+#down{
+    margin-top: 6px;
+    border: 2px #383736 solid;
+    background-color: rgb(240, 231, 231) ;
+    border-radius: 4px;
+}
+
+#down:hover{
+    transform: scale(1.2) !important;
+} 

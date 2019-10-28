@@ -1,15 +1,15 @@
-<div class="container">
+<div class="container wow slideInDown" data-wow-duration="1s">
     <div class="card">
         <div class="card-body">
             <p>{{quote.name}} || {{quote.completeDate|date}}</p>
             <div class="container">
                 <div class="row no-gutters">
                     <div class="col-xs-2 col-sm-4">
-                        <button href (click)="likeVote()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>upvote</button>
+                        <button id="like" href (click)="likeVote()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  upvote</button>
                     </div>
                     <div class="col-xs-2 col-sm-4"> <button>{{ votes }}</button> </div>
                     <div class="col-xs-2 col-sm-4">
-                        <button href (click)="dislikeVote()"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>downvote</button>
+                        <button id="dislike" href (click)="dislikeVote()"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>  downvote</button>
                     </div>
                 </div>
             </div>
@@ -18,13 +18,3 @@
         </div>
     </div>
 </div>
-
-<!-- 
-
-    <div class="row no-gutters">
-        <div class="col-xs-6 col-sm-3"></div>
-        <div class="col-xs-6 col-sm-3"></div>
-        <div class="col-xs-6 col-sm-3"></div>
-      </div>
-
- -->

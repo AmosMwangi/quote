@@ -12,9 +12,6 @@ export class QuoteComponent implements OnInit {
     new Quote(1,'Amos Mwangi','Abraham Lincon', 'Find an online version and watch merlin find his son',new Date(2019,9,14)),
     new Quote(2,'Kayte spark','Abraham Lincon','I have to buy cookies for the parrot',new Date(2019,6,9)),
     new Quote(3,'Migos Qwevo','Abraham Lincon','Diana has her birthday coming up soon',new Date(2019,1,12)),
-    new Quote(4,'Salim Bitu','Abraham Lincon','Pupper likes expensive snacks',new Date(2019,11,18)),
-    new Quote(5,'Dan Wemba','Abraham Lincon','Damn Math',new Date(2019,2,14)),
-    new Quote(6,'Lil Baby','Abraham Lincon','Cause I am an evil overlord',new Date(2019,3,14)),
   ];
 
   deleteQuote(isComplete, index){

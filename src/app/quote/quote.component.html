@@ -1,18 +1,16 @@
+<!-- QUOTES -->
 <div class="container">
-  <h1>MY GOALS</h1>
-  <hr>
-
   <div class="row">
     <div class="col-md-6">
       <div *ngFor='let quote of quotes;let i = index'>
 
         <!-- quote "view" -->
 
-        <div class="card">
+        <div class="card" id="card">
             <div class="card-body">
               <h5 class="card-title">{{quote.description}}</h5>
               <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}</cite></footer>
-              <button (click)='toggleDetails(i)' class="btn btn-primary">View</button>
+              <button id="down" (click)='toggleDetails(i)' ><i class="fa fa-chevron-circle-down" aria-hidden="true"></i></button>
             </div>
           </div>
 
@@ -33,19 +31,3 @@
   <p *ngIf='quotes.length > 5'>You have too many goals</p>
 </div>
 
-<!-- 
-
-<div class="card">
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-
-      <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}} due on {{quote.completeDate|date}}</cite></footer>
-    </blockquote>
-  </div>
-</div>
-
-
-
-
- -->

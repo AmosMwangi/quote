@@ -9,7 +9,9 @@ import { QuoteFormComponent } from './quote-form/quote-form.component';
 import { StrikethroughDirective } from './strikethrough.directive';
 import { DateCountPipe } from './date-count.pipe';
 import { FormsModule } from '@angular/forms';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -24,8 +26,12 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ModalModule.forRoot(),
+    BrowserAnimationsModule,
+    MatDialogModule,
+    MatButtonModule,
+    
   ],
+  entryComponents:[QuoteFormComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

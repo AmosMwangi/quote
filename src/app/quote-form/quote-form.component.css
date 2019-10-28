@@ -1,0 +1,9 @@
+#form{
+    position: fixed;
+    overflow: hidden;
+}
+
+h2{
+    color: rgb(199, 122, 122);
+    font-family: 'Bad Script', cursive;
+}

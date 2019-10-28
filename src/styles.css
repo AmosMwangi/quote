@@ -1,2 +1,186 @@
-/* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
+@import url('https://fonts.googleapis.com/css?family=Bad+Script&display=swap');
+
+body{
+    background-color: rgb(248, 236, 219);
+}
+
+/*
+========================
+    video background 
+========================
+*/
+.jumbotron {
+    position: relative;
+    overflow: hidden;
+    background-color:black;
+    height:81vh !important;
+  }
+  .jumbotron video {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    width:100%;
+    height:100%;
+    object-fit: cover;
+    opacity:0.5;
+  }
+  .jumbotron .container {
+    z-index: 2;
+    position: relative;
+  }
+
+  /*
+========================
+    M & D logo
+========================
+*/
+  #logo{
+    height: 250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50%;
+    margin-top: 60px;
+    animation: shadow-pulse 3s infinite;
+    cursor: pointer;
+}
+
+@keyframes shadow-pulse{
+    0%{
+        box-shadow: 0 0 0 0px rgb(153, 149, 149);
+    }
+    100%{
+        box-shadow: 0 0 0 20px rgba(63, 61, 61, 0);
+    }
+}
+
+  /*
+  ========================
+  scroll down indicator
+  ========================
+  */
+.box{
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 230px;
+}
+
+.box span{
+    display: block !important;
+    width: 20px !important;
+    height: 20px !important;
+    border-bottom: 1px solid #fff !important;
+    border-right: 1px solid #fff !important;
+    transform: rotate(45deg);
+    margin: -10px;
+    animation: animate 2s infinite;
+}
+
+.box span:nth-child(2){
+    animation-delay: -0.2s;
+}
+
+.box span:nth-child(3){
+    animation-delay: -0.4s;
+}
+
+@keyframes animate{
+    0%
+    {
+        opacity: 0;
+        transform: rotate(45deg) translate(-20px,-20px);
+    }
+    50%
+    {
+        opacity: 1;
+    }
+    100%
+    {
+        opacity: 0;
+        transform: rotate(45deg) translate(20px,20px);
+    }
+}
+/*
+======================
+    M & Q title
+======================
+*/
+#title{
+    font-size: 4em;
+    text-align: center;
+    font-family: 'Cookie', cursive;
+
+}
+
+/*
+=======================
+    text shuffle
+=======================
+*/
+#container {
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .text {
+    top: 130px !important;
+    margin-top: 3em;
+    font-weight: 100;
+    font-size: 23px;
+    color: #1b1010;
+  }
+  .dud {
+    color: #757575;
+  }
+
+  .swap img:last-child{display:none}
+  .swap:hover img:first-child{display:none}
+  .swap:hover img:last-child{display:inline-block}
+
+  #shuffle-img{
+      height: 300px;
+      width: 300px;
+  }
+/* 
+=====================
+    footer 
+=====================
+*/
+#footer{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.glow {
+    font-family: 'Bad Script', cursive;
+    color: #fff;
+    float: left;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate;
+  }
+  
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #eb7db4, 0 0 40px #cf76a3, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #e680b3, 0 0 40px #df84b2, 0 0 50px #d177a4, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -5,11 +5,152 @@
   <title>Quote</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/originals/80/1a/ed/801aed2e090dfffcc2d49ede88455a43.jpg">
   <!-- fontawesome -->
   <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+  <!-- BANNER/HERO -->
+  <header id="header">
+      <div class="jumbotron jumbotron-fluid">
+
+          <video autoplay muted loop poster="">    
+              <source src="./assets/banner.mp4" type="video/mp4">
+          </video>
+          
+            <div class="container text-white">
+                <img id="logo" src="./assets/q.png" alt="">
+              <div class="box">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>         
+            </div>
+          </div>
+    </header>
+
+  <!-- title -->
+  <h1 id="title"> <span class="wow fadeIn">M</span><span class="wow fadeIn" data-wow-delay="0.2s">A</span><span class="wow fadeIn" data-wow-delay="0.4s">L</span><span class="wow fadeIn" data-wow-delay="0.6s">I</span><span class="wow fadeIn" data-wow-delay="0.8s">B</span><span class="wow fadeIn" data-wow-delay="1s">U</span> <span class="wow fadeIn" data-wow-delay="1.2s">Q</span><span class="wow fadeIn" data-wow-delay="1.4s">U</span><span class="wow fadeIn" data-wow-delay="1.6s">O</span><span class="wow fadeIn" data-wow-delay="1.8s">T</span><span class="wow fadeIn" data-wow-delay="2s">E</span><span class="wow fadeIn" data-wow-delay="2.2s">S</span></h1>
+
+  <!-- card/text shuffle -->
+  <section>
+    <div class="container">
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-md-4 swap">
+            <img id="shuffle-img" src="./assets/namaste2.jpg" class="card-img"  />
+            <img id="shuffle-img" src="./assets/namaste.jpg" class="card-img"  />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div class="container" id="">
+                  <div class="text card-title"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <app-root></app-root>
+
+  <!-- footer -->
+  <section id="footer">
+    <footer>
+      <h4 class="glow">copyright <sup>&copy</sup> Amos Mwangi</h4>
+    </footer>
+  </section>
+
+  <!-- wow.js scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+    new WOW().init();
+
+    class TextScramble {
+      constructor(el) {
+        this.el = el
+        this.chars = '!<>-_\\/[]{}—=+*^?#________'
+        this.update = this.update.bind(this)
+      }
+      setText(newText) {
+        const oldText = this.el.innerText
+        const length = Math.max(oldText.length, newText.length)
+        const promise = new Promise((resolve) => this.resolve = resolve)
+        this.queue = []
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || ''
+          const to = newText[i] || ''
+          const start = Math.floor(Math.random() * 40)
+          const end = start + Math.floor(Math.random() * 40)
+          this.queue.push({ from, to, start, end })
+        }
+        cancelAnimationFrame(this.frameRequest)
+        this.frame = 0
+        this.update()
+        return promise
+      }
+      update() {
+        let output = ''
+        let complete = 0
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+          let { from, to, start, end, char } = this.queue[i]
+          if (this.frame >= end) {
+            complete++
+            output += to
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar()
+              this.queue[i].char = char
+            }
+            output += `<span class="dud">${char}</span>`
+          } else {
+            output += from
+          }
+        }
+        this.el.innerHTML = output
+        if (complete === this.queue.length) {
+          this.resolve()
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update)
+          this.frame++
+        }
+      }
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)]
+      }
+    }
+
+    const phrases = [
+      'yesterday does mot matter what matters most is the present,',
+      'sooner or later',
+      'you\'re going to realize',
+      'just as I did',
+      'that there\'s a difference',
+      'between knowing the path',
+      'and walking the path'
+    ]
+
+    const el = document.querySelector('.text')
+    const fx = new TextScramble(el)
+
+    let counter = 0
+    const next = () => {
+      fx.setText(phrases[counter]).then(() => {
+        setTimeout(next, 5000)
+      })
+      counter = (counter + 1) % phrases.length
+    }
+
+    next()
+
+  </script>
+
 </body>
 </html>
