@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MaDialog } from '@angular/material';
+import { MatDialog } from '@angular/material';
 import { QuoteFormComponent } from './quote-form/quote-form.component';
 
 @Component({
