@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Quote</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/originals/80/1a/ed/801aed2e090dfffcc2d49ede88455a43.jpg">
+  <!-- fontawesome -->
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- animate.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css">
+  <!-- google fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="styles.540543d64b06c14d14fa.css"></head>
+<body>
+  <!-- BANNER/HERO -->
+  <header id="header">
+      <div class="jumbotron jumbotron-fluid">
+
+          <video autoplay muted loop poster="">    
+              <source src="./assets/banner.mp4" type="video/mp4">
+          </video>
+          
+            <div class="container text-white">
+                <img id="logo" src="./assets/q.png" alt="">
+              <div class="box">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>         
+            </div>
+          </div>
+    </header>
+
+  <!-- title -->
+  <h1 id="title"> <span class="wow fadeIn">M</span><span class="wow fadeIn" data-wow-delay="0.2s">A</span><span class="wow fadeIn" data-wow-delay="0.4s">L</span><span class="wow fadeIn" data-wow-delay="0.6s">I</span><span class="wow fadeIn" data-wow-delay="0.8s">B</span><span class="wow fadeIn" data-wow-delay="1s">U</span> <span class="wow fadeIn" data-wow-delay="1.2s">Q</span><span class="wow fadeIn" data-wow-delay="1.4s">U</span><span class="wow fadeIn" data-wow-delay="1.6s">O</span><span class="wow fadeIn" data-wow-delay="1.8s">T</span><span class="wow fadeIn" data-wow-delay="2s">E</span><span class="wow fadeIn" data-wow-delay="2.2s">S</span></h1>
+  <h4 class="text-center wow fadeIn" data-wow-delay="3.6s">INSPIRE</h4>
+  <!-- card/text shuffle -->
+  <section>
+    <div class="container">
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row no-gutters">
+          <div class="col-md-4 swap">
+            <img id="shuffle-img" src="./assets/namaste2.jpg" class="card-img"  />
+            <img id="shuffle-img" src="./assets/namaste.jpg" class="card-img"  />
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+                <div class="container" id="">
+                  <div class="text card-title"></div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-root></app-root>
+
+  <!-- footer -->
+  <section id="footer">
+    <footer>
+      <h4 class="glow">copyright <sup>&copy</sup> Amos Mwangi</h4>
+    </footer>
+  </section>
+
+  <!-- wow.js scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+  <script>
+    new WOW().init();
+
+    class TextScramble {
+      constructor(el) {
+        this.el = el
+        this.chars = '!<>-_\\/[]{}—=+*^?#________'
+        this.update = this.update.bind(this)
+      }
+      setText(newText) {
+        const oldText = this.el.innerText
+        const length = Math.max(oldText.length, newText.length)
+        const promise = new Promise((resolve) => this.resolve = resolve)
+        this.queue = []
+        for (let i = 0; i < length; i++) {
+          const from = oldText[i] || ''
+          const to = newText[i] || ''
+          const start = Math.floor(Math.random() * 40)
+          const end = start + Math.floor(Math.random() * 40)
+          this.queue.push({ from, to, start, end })
+        }
+        cancelAnimationFrame(this.frameRequest)
+        this.frame = 0
+        this.update()
+        return promise
+      }
+      update() {
+        let output = ''
+        let complete = 0
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+          let { from, to, start, end, char } = this.queue[i]
+          if (this.frame >= end) {
+            complete++
+            output += to
+          } else if (this.frame >= start) {
+            if (!char || Math.random() < 0.28) {
+              char = this.randomChar()
+              this.queue[i].char = char
+            }
+            output += `<span class="dud">${char}</span>`
+          } else {
+            output += from
+          }
+        }
+        this.el.innerHTML = output
+        if (complete === this.queue.length) {
+          this.resolve()
+        } else {
+          this.frameRequest = requestAnimationFrame(this.update)
+          this.frame++
+        }
+      }
+      randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)]
+      }
+    }
+
+    const phrases = [
+      'yesterday does not matter, what matters most is the present.',
+      'Time isnt the main thing. Its the only thing.',
+      'There is always a reason to smile.',
+      'Dont regeret the past, learn from it.',
+      'Start where you are. Use what you have. Do what you can.',
+      'Dont stop untill your proud.',
+      'Stars can shine without darkness.'
+    ]
+
+    const el = document.querySelector('.text')
+    const fx = new TextScramble(el)
+
+    let counter = 0
+    const next = () => {
+      fx.setText(phrases[counter]).then(() => {
+        setTimeout(next, 5000)
+      })
+      counter = (counter + 1) % phrases.length
+    }
+
+    next()
+
+  </script>
+
+<script src="runtime-es2015.e8a2810b3b08d6a1b6aa.js" type="module"></script><script src="runtime-es5.e8a2810b3b08d6a1b6aa.js" nomodule defer></script><script src="polyfills-es5.931f63c2feef40f602a6.js" nomodule defer></script><script src="polyfills-es2015.0ef207fb7b4761464817.js" type="module"></script><script src="main-es2015.5cbae7f6f064a9ad3b5d.js" type="module"></script><script src="main-es5.5cbae7f6f064a9ad3b5d.js" nomodule defer></script></body>
+</html>
