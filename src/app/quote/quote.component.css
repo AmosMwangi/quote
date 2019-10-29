@@ -19,3 +19,9 @@
 #down:hover{
     transform: scale(1.2) !important;
 } 
+
+
+
+#best-quote{
+    text-align: center;
+}

@@ -1,17 +1,16 @@
 <div class="container wow slideInDown" data-wow-duration="1s">
     <div class="card">
         <div class="card-body">
-            <p>{{quote.name}} || {{quote.completeDate|date}}</p>
+            <footer class="blockquote-footer"><cite title="Source Title">{{quote.author}}</cite></footer>
+            <p>{{quote.name}} || {{quote.completeDate|dateCount}}</p>
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="col-xs-2 col-sm-4">
+                    <div class="col-xs-2 col-sm-6">
                         <span><button class="m-1">{{quote.upVote}}</button> <button id="like" href (click)="likeVote()"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i>  upvote</button></span>
                     </div>
-                    <div class="col-xs-2 col-sm-4"> </div>
-                    <div class="col-xs-2 col-sm-4">
+                    <div class="col-xs-2 col-sm-6">
                        <span> <button class="m-1">{{ quote.downVote}}</button> <button id="dislike" href (click)="dislikeVote()"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i>  downvote</button></span>
                     </div>
-                    <div class="col-xs-2 col-sm-4"> </div>
                 </div>
             </div>
 
